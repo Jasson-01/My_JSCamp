@@ -7,17 +7,19 @@
     <title>DevJobs - Encuentra tu próximo trabajo</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../01-CSS/styleSearch.css">
+    <link rel="stylesheet" href="../01-CSS/empleos.css">
+    <script type="module" src="../02-javaScript/empleos.js"></script>
+
 </head>
 
 <body>
     <header>
         <div class="logo">
-            <i class="fa.solid fa-shapes">DevJobs</i>
+            <i class="fa-solid fa-shapes">DevJobs</i>
         </div>
         <nav>
             <ul>
-                <li><a href="#">Inicio</a></li>
+                <li><a href="index.html">Inicio</a></li>
                 <li><a href="#">Empleos</a></li>
                 <li><a href="#">Empresas</a></li>
                 <li><a href="#">Salarios</a></li>
@@ -48,7 +50,7 @@
         </div>
     </div>
 
-    <main>
+    <main class="section-vacantes">
         <h2 class="section-title">Resultados de búsqueda</h2>
         <article class="job-card">
             <div class="job-info">
@@ -58,7 +60,7 @@
                     JavaScript,
                     React y Node.js. El candidato ideal debe ser capaz de trabajr en equipo. </p>
             </div>
-            <button class="btn-apply">Aplicar</button>
+            <button class="btn-apply" id="boton-importante">Aplicar</button>
         </article>
 
         <article class="job-card">
