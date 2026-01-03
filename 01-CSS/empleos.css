@@ -1,10 +1,13 @@
+/* ==========================================
+   1. ESTILOS GLOBALES Y VARIABLES
+   ========================================== */
 :root {
-  --bg-body: #0f172a; /*Azul muy oscuro (fondo principal) */
-  --bg-card: #1e293b; /*Azul grisáceo (tarjetas) */
+  --bg-body: #060b13; /* Azul casi negro (fondo principal más profundo) */
+  --bg-card: #0d141f; /* Azul oscuro (tarjetas o secciones) */
   --text-primary: #f8fafc; /* Blanco */
-  --text-secondary: #94a3b8; /* Gris claro */
+  --text-secondary: #94a3b8; /* Gris claro / texto secundario */
   --accent-blue: #2563eb; /* Azul brillante (botones) */
-  --border-color: #334155; /* Color de bordes sutiles */
+  --border-color: #1e293b; /* Color de bordes más sutil */
 }
 
 * {
@@ -20,15 +23,24 @@ body {
   line-height: 1.5;
 }
 
-/* HEADER / NAVBAR */
+/* Contenedor principal compartido */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem 1rem;
+}
 
+/* ==========================================
+   2. COMPONENTES COMPARTIDOS (Header, Nav)
+   ========================================== */
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  padding: 1rem 4rem;
+  padding: 1rem 1rem;
   background-color: var(--bg-body);
   border-bottom: 1px solid var(--border-color);
+  gap: 1.5rem;
 }
 
 .logo {
@@ -46,6 +58,7 @@ header {
 
 nav ul {
   display: flex;
+  align-items: flex-start;
   list-style: none;
   gap: 2rem;
 }
@@ -58,7 +71,7 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--text-primary);
+  color: var(--accent-blue);
 }
 
 .header-actions {
@@ -77,8 +90,17 @@ nav a:hover {
   font-weight: 500;
 }
 
-/* Simulacion del Avatar */
+.search-header {
+  background-color: var(--bg-card);
+  padding: 0.1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
 
+/* Simulacion del Avatar */
 .avatar {
   width: 36px;
   height: 36px;
@@ -93,7 +115,11 @@ nav a:hover {
   object-fit: cover;
 }
 
-/* HERO SECTION (Buscador) */
+/* ==========================================
+   3. VISTA: LISTADO DE EMPLEOS (empleos.html)
+   ========================================== */
+
+/* Hero y Buscador Principal */
 .hero {
   text-align: center;
   padding: 4rem 1rem;
@@ -136,6 +162,7 @@ nav a:hover {
   padding: 0.5rem 0;
 }
 
+/* Filtros */
 .filters {
   display: flex;
   justify-content: center;
@@ -160,14 +187,7 @@ nav a:hover {
   border-color: var(--accent-blue);
 }
 
-/* MAIN CONTENT (lista de trabajos) */
-
-main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1rem 4rem 1rem;
-}
-
+/* Tarjetas de la Lista (Listing) */
 h2.section-title {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
@@ -182,11 +202,12 @@ h2.section-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: transform 0.2s;
+  transition: border-color 0.3s, transform 0.2s;
 }
 
 .job-card:hover {
-  border-color: #475569;
+  border-color: var(--accent-blue);
+  transform: translateY(-2px);
 }
 
 .job-info {
@@ -197,22 +218,19 @@ h2.section-title {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
+  color: var(--text-primary);
 }
 
 .job-meta {
   color: var(--text-secondary);
   font-size: 0.9rem;
-  margin-bottom: 0.1rem;
-}
-
-.job-meta span {
-  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .job-desc {
   color: var(--text-secondary);
   font-size: 0.95rem;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .btn-apply {
@@ -231,8 +249,7 @@ h2.section-title {
   background-color: #1d4ed8;
 }
 
-/* PAGINATION */
-
+/* Paginación */
 .pagination {
   display: flex;
   justify-content: center;
@@ -262,52 +279,150 @@ h2.section-title {
   background-color: var(--bg-card);
 }
 
-/* MEDIA QUERIES (versión Móvil) */
+/* ==========================================
+   4. VISTA: DETALLE DE OFERTA (detailOffer.html)
+   ========================================== */
 
+/* Breadcrumbs (Migas de pan) */
+.breadcrumbs {
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.breadcrumbs .parent {
+  color: var(--text-secondary);
+}
+
+.breadcrumbs .current {
+  color: #f8fafc;
+  font-weight: 500;
+}
+
+/* Cabecera del Puesto (Título y Botón) */
+.job-card-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.job-header-info h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.job-header-meta {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.btn-apply-lg {
+  background-color: var(--accent-blue);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+  transition: all 0.3s;
+}
+
+.btn-apply-lg:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Secciones de Contenido (Descripción, Requisitos) */
+.section-container {
+  margin-bottom: 2.5rem;
+}
+
+.subtitulos-ofertas {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.15rem;
+}
+
+.text-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* Listas con Iconos de Check */
+.custom-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.list-item i,
+.list-item .material-symbols-outlined {
+  color: #22d3ee; /* Color cian */
+  margin-top: 0.2rem;
+  font-size: 1.2rem;
+}
+
+/* ==========================================
+   5. MEDIA QUERIES (Respuestas para Móvil)
+   ========================================== */
 @media (max-width: 768px) {
   header {
-    padding: 1rem; /*Menos relleno a los lados*/
-    flex-direction: column; /*Apilar elementos verticalmente */
+    padding: 1rem;
+    flex-direction: column;
     gap: 1rem;
   }
 
-  /* Ocultamos el menú de navegación textual para ahorrar espacio */
   nav ul {
     display: none;
   }
 
   .header-actions {
     width: 100%;
-    justify-content: space-between; /*Separar boton y avatar*/
-  }
-
-  /* 2. Ajuste del Hero (Buscador) */
-  .hero {
-    padding: 2rem 1rem;
+    justify-content: space-between;
   }
 
   .hero h1 {
-    font-size: 1.8rem; /*Texto mas pequeño */
+    font-size: 1.8rem;
   }
 
   .filters {
-    flex-direction: column; /*Filtros uno debajo del otro*/
-    align-items: stretch; /*Que ocupen todo el ancho */
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  /* 3. Ajuste de las Targetas de Trabajo */
+  /* Ajuste de tarjetas en lista móvil */
   .job-card {
-    flex-direction: column; /*Texto arriba, botón abajo */
-    align-items: flex-start; /*Alinear a la izquierda */
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .job-info {
-    max-width: 100%; /*Que el texto use todo el ancho disponible */
+    max-width: 100%;
     margin-bottom: 1rem;
   }
 
   .btn-apply {
-    width: 100%; /*Boton grande */
+    width: 100%;
     text-align: center;
+  }
+
+  /* Ajuste de cabecera de detalle móvil */
+  .job-card-detail {
+    flex-direction: column;
+    gap: 1.5rem;
   }
 }
