@@ -26,7 +26,8 @@ jobCarts?.addEventListener("click", function (event) {
 
 })
 
-
+// FORMA ANTIGUA
+// -------------
 // const filtroUbicacion = document.querySelector('select[name="Ubicación"]');
 // const todasLasCards = document.querySelectorAll(".job-card");
 
@@ -46,6 +47,8 @@ jobCarts?.addEventListener("click", function (event) {
 // });
 
 
+// FORMA NUEVA
+// -------------
 const filtroUbicacion = document.querySelector('select[name="Ubicación"]');
 const todasLasCards = document.querySelectorAll(".job-card");
 
