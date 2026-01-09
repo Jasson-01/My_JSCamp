@@ -10,6 +10,10 @@
   --border-color: #1e293b; /* Color de bordes más sutil */
 }
 
+.hidden {
+  display: none !important;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -78,6 +82,12 @@ nav a:hover {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-left: auto;
+}
+
+/* Si hay un buscador antes, el buscador es el que empuja, así que quitamos el margen aquí */
+.search-header + .header-actions {
+  margin-left: 0;
 }
 
 .btn-secondary {
@@ -165,7 +175,6 @@ nav a:hover {
 /* Filtros */
 .filters {
   display: flex;
-  justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
@@ -242,7 +251,7 @@ h2.section-title {
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.3s;
+  transition: background-color 0.3s;
 }
 
 .btn-apply:hover {

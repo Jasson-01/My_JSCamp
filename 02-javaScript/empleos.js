@@ -25,3 +25,40 @@ jobCarts?.addEventListener("click", function (event) {
     }
 
 })
+
+
+// const filtroUbicacion = document.querySelector('select[name="Ubicación"]');
+// const todasLasCards = document.querySelectorAll(".job-card");
+
+// filtroUbicacion?.addEventListener("change", function (event) {
+//     const ubicacionSeleccionada = event.target.value;
+
+//     todasLasCards.forEach(card => {
+//         const metaInfo = card.querySelector(".job-meta")?.textContent || "";
+
+//         // Verificamos si la ubicación seleccionada está dentro del texto de job-meta
+//         if (ubicacionSeleccionada === "" || metaInfo.includes(ubicacionSeleccionada)) {
+//             card.style.display = "flex"; // Mostramos la card
+//         } else {
+//             card.style.display = "none"; // Ocultamos la card
+//         }
+//     });
+// });
+
+
+const filtroUbicacion = document.querySelector('select[name="Ubicación"]');
+const todasLasCards = document.querySelectorAll(".job-card");
+
+filtroUbicacion?.addEventListener("change", function (event) {
+    const ubicacionSeleccionada = event.target.value;
+
+    todasLasCards.forEach(card => {
+        const metaInfo = card.querySelector(".job-meta")?.textContent || "";
+
+        // Verificamos si la ubicación seleccionada está dentro del texto de job-meta
+        const debeMostrarse = ubicacionSeleccionada === "" || metaInfo.includes(ubicacionSeleccionada);
+
+        // Aplicamos la clase dinámicamente
+        card.classList.toggle("hidden", !debeMostrarse);
+    });
+});

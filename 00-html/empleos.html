@@ -14,8 +14,8 @@
 
 <body>
     <header>
-        <div class="logo">
-            <i class="fa-solid fa-shapes">DevJobs</i>
+        <div class="logo" style="margin-right: 20px;">
+            <i class="fa-solid fa-shapes"> DevJobs</i>
         </div>
         <nav>
             <ul>
@@ -43,9 +43,26 @@
         </div>
 
         <div class="filters">
-            <button class="filter-btn">Tecnología<i class="fa-solid fa-chevron-down"></i></button>
-            <button class="filter-btn">Ubicación<i class="fa-solid fa-chevron-down"></i></button>
-            <button class="filter-btn">Tipo de contrato<i class="fa-solid fa-chevron-down"></i></button>
+            <!-- <button class="filter-btn">Tecnología<i class="fa-solid fa-chevron-down"></i></button> -->
+            <select class="filter-btn" name="tecnología">
+                <option value="" disabled selected>Tecnología<i class="fa-solid fa-chevron-down"></i></option>
+                <option value="React">React</option>
+                <option value="Node">Node.js</option>
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+            </select>
+            <!-- <button class="filter-btn">Ubicación<i class="fa-solid fa-chevron-down"></i></button> -->
+            <select class="filter-btn" name="Ubicación">
+                <option value="" disabled selected>Ubicación<i class="fa-solid fa-chevron-down"></i></option>
+                <option value="Remoto">Remoto</option>
+                <option value="Ciudad de México">Ciudad de México</option>
+                <option value="Guadalajara">Guadalajara</option>
+                <option value="Monterrey">Monterrey</option>
+                <option value="Lima">Lima</option>
+                <option value="Buenos Aires">Buenos Aires</option>
+                <option value="Barcelona">Barcelona</option>
+            </select>
+            <!-- <button class="filter-btn">Tipo de contrato<i class="fa-solid fa-chevron-down"></i></button> -->
             <button class="filter-btn">Nivel de experiencia<i class="fa-solid fa-chevron-down"></i></button>
         </div>
     </div>
@@ -58,7 +75,7 @@
                 <div class="job-meta">Tech Solutions Inc. | Remoto</div>
                 <p class="job-desc">Buscamosun ingeniero de software con experiencia en desarrollo web y conocimiento en
                     JavaScript,
-                    React y Node.js. El candidato ideal debe ser capaz de trabajr en equipo. </p>
+                    React y Node.js. El candidato ideal debe ser capaz de trabajar en equipo. </p>
             </div>
             <button class="btn-apply" id="boton-importante">Aplicar</button>
         </article>
